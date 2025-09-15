@@ -3,7 +3,7 @@ name: arXiv Abstracts JA (DeepL)
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 2 * * *"  # 毎日 11:17 JST 相当（任意に変更）
+    - cron: "0 23 * * *"
 
 permissions:
   contents: write

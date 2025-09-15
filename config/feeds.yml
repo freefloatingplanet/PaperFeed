@@ -3,8 +3,8 @@ feeds:
   - "https://export.arxiv.org/api/query?search_query=all:trajectory+AND+(all:optimal+OR+all:optimisation)+AND+(all:interplanetary+OR+all:spacecraft)&max_results=20&sortBy=lastUpdatedDate"
 
   # 宇宙機のスケジューリング・プランニング
-  #- "https://export.arxiv.org/api/query?search_query=(all:spacecraft+OR+all:satellite)+AND+(all:scheduling+OR+all:planning)+AND+(all:agile+OR+all:earth+OR+all:observation+OR+all:agent)&max_results=20&sortBy=lastUpdatedDate"
+  - "https://export.arxiv.org/api/query?search_query=(all:spacecraft+OR+all:satellite)+AND+(all:scheduling+OR+all:planning)+AND+(all:agile+OR+all:earth+OR+all:observation+OR+all:agent)&max_results=20&sortBy=lastUpdatedDate"
 
   # 宇宙機の姿勢制御、誘導、ナビゲーション
-  #- "https://export.arxiv.org/api/query?search_query=all:spacecraft+AND+(all:navigation+OR+all:guidance+OR+planning)&max_results=20&sortBy=lastUpdatedDate"
+  - "https://export.arxiv.org/api/query?search_query=all:spacecraft+AND+(all:navigation+OR+all:guidance+OR+planning)&max_results=20&sortBy=lastUpdatedDate"
 
