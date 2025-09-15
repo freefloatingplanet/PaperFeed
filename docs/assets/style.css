@@ -1,0 +1,15 @@
+:root { --fg:#111; --muted:#666; --bg:#fff; --card:#fafafa; }
+* { box-sizing: border-box; }
+body { margin: 0 auto; padding: 16px; max-width: 960px; color: var(--fg); background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Helvetica Neue", Arial, sans-serif; }
+header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+header h1 { font-size: 1.3rem; margin:0; }
+nav a { margin-left:12px; text-decoration:none; color:#07c; }
+#search { display:flex; align-items:center; gap: 12px; margin: 8px 0 16px; }
+#q { flex:1; padding:10px 12px; border:1px solid #ddd; border-radius:8px; }
+#count { color: var(--muted); }
+.card { background: var(--card); border:1px solid #eee; border-radius:12px; padding:12px 14px; margin:12px 0; }
+.card h2 { font-size:1.03rem; margin: 0 0 8px; }
+.meta { color: var(--muted); font-size: .9rem; margin-bottom:8px; }
+.summary { white-space: pre-wrap; line-height:1.55; margin:0; }
+footer { margin: 24px 0; color: var(--muted); font-size: .9rem; }
+

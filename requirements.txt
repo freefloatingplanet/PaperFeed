@@ -1,0 +1,10 @@
+feedparser
+feedgen
+requests
+pymupdf
+python-dateutil
+tenacity
+Jinja2
+beautifulsoup4
+lxml
+PyYAML

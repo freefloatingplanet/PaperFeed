@@ -1,0 +1,6 @@
+site_title: "arXiv Abstracts (ja, Google Translate)"
+site_desc: "arXivのabstractをGoogle翻訳で日本語化して配信"
+site_url: "https://<your-gh-username>.github.io/<repo>/"   # ←あなたのPages URLに変更
+language: "ja"
+feed_limit: 200
+index_limit: 120

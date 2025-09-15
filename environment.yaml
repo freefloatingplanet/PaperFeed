@@ -1,0 +1,17 @@
+name: PaperFeed
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - feedparser
+  - requests
+  - feedgen
+  - python-dateutil
+  - tenacity
+  - Jinja2
+  - beautifulsoup4
+  - lxml
+  - PyYAML
+  - openai

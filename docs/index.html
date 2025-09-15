@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>arXiv Abstracts (ja, DeepL)</title>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="./feed.xml" />
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <header>
+    <h1>arXiv Abstracts (DeepL翻訳)</h1>
+    <nav>
+      <a href="./feed.xml">RSS</a>
+      <a href="https://arxiv.org/">arXiv</a>
+    </nav>
+  </header>
+
+  <section id="search">
+    <input id="q" type="search" placeholder="タイトル・要旨（日本語）で検索…" />
+    <span id="count"></span>
+  </section>
+
+  <main id="list" aria-busy="true">
+    <p>読み込み中…</p>
+  </main>
+
+  <footer>
+    <p>DeepL API Free により abstract を日本語翻訳。出典は各論文の <em>arXiv</em> 参照。</p>
+  </footer>
+
+  <script>
+    async function loadItems() {
+      const res = await fetch('./items/index.json', {cache: 'no-store'});
+      if (!res.ok) throw new Error('failed to load index.json');
+      return await res.json();
+    }
+    function render(items) {
+      const list = document.getElementById('list');
+      list.innerHTML = '';
+      for (const it of items) {
+        const el = document.createElement('article');
+        el.className = 'card';
+        el.innerHTML = `
+          <h2><a href="${it.url}" target="_blank" rel="noopener">${it.title}</a></h2>
+          <div class="meta">${(it.published||'').slice(0,10)} | <code>${it.id}</code></div>
+          <pre class="summary">${it.abstract_ja}</pre>
+        `;
+        list.appendChild(el);
+      }
+      document.getElementById('count').textContent = `件数: ${items.length}`;
+    }
+    function setupSearch(all) {
+      const input = document.getElementById('q');
+      const normalize = s => (s||'').toLowerCase();
+      input.addEventListener('input', () => {
+        const q = normalize(input.value);
+        if (!q) return render(all);
+        const filtered = all.filter(it =>
+          normalize(it.title).includes(q) || normalize(it.abstract_ja).includes(q)
+        );
+        render(filtered);
+      });
+    }
+    loadItems().then(items => {
+      document.getElementById('list').removeAttribute('aria-busy');
+      render(items);
+      setupSearch(items);
+    }).catch(err => {
+      document.getElementById('list').innerHTML = `<p style="color:red">読み込みに失敗しました: ${err}</p>`;
+    });
+  </script>
+</body>
+</html>
+
