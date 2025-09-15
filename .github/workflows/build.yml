@@ -1,9 +1,11 @@
 name: arXiv Abstracts JA (DeepL)
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
   schedule:
     - cron: "0 23 * * *"
+  push:
+    branches: [ develop ]
 
 permissions:
   contents: write
@@ -50,7 +52,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/ data/ || true
+          git add docs/feed.xml
           git diff --quiet && echo "no changes" || git commit -m "chore: update site $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
           git push
 
