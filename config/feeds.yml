@@ -8,3 +8,5 @@ feeds:
   # 宇宙機の姿勢制御、誘導、ナビゲーション
   - "https://export.arxiv.org/api/query?search_query=all:spacecraft+AND+(all:navigation+OR+all:guidance+OR+planning)&max_results=20&sortBy=lastUpdatedDate"
 
+  # 宇宙交通管理
+  - https://export.arxiv.org/api/query?search_query=%22space+traffic+management%22&max_results=20&sortBy=lastUpdatedDate
