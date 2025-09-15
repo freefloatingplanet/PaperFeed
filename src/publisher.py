@@ -14,9 +14,15 @@ INDEX_LIMIT = int(CONFIG.get("index_limit",120))
 
 def load_items():
     items = []
-    for p in ITEMS.glob("*.json"):
+    for p in ITEMS.glob("[0-9]*.json"):
         if p.name.endswith(".raw.json"): continue
-        items.append(json.loads(p.read_text(encoding="utf-8")))
+        obj = json.loads(p.read_text(encoding="utf-8"))
+        # Some files (like index.json) may contain a list of items.
+        # If so, extend the items list; otherwise append a single item dict.
+        if isinstance(obj, list):
+            items.extend(obj)
+        else:
+            items.append(obj)
     items.sort(key=lambda x: x.get("published",""), reverse=True)
     return items
 

@@ -64,7 +64,9 @@ def translate_text(text: str, target="ja", source="en") -> str:
 def main():
     raws = sorted(DOCS_ITEMS.glob("*.raw.json"))
     for rf in raws:
-        out = rf.with_suffix(".json")
+        print(f"Translating {rf} ...")
+        out = rf.with_name(rf.name.replace('.raw.json', '.json'))
+        print(f" -> {out}")
         if out.exists():
             continue
         item = json.loads(rf.read_text(encoding="utf-8"))
