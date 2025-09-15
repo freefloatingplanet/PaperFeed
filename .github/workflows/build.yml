@@ -34,15 +34,15 @@ jobs:
           python -m pip install -U pip
           pip install -r requirements.txt
 
-      - name: Run: aggregator
+      - name: aggregator
         run: |
           python -m src.aggregator
 
-      - name: Run: translator (DeepL)
+      - name: translator (DeepL)
         run: |
           python -m src.translator
 
-      - name: Run: publisher
+      - name: publisher
         run: |
           python -m src.publisher
 
